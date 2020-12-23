@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="PassFailed1">
+  <test name="PassFailed1 Test">
+    <classes>
+      <class name="com.Grading.Test.PassFailedTest1"/>
+    </classes>
+  </test> <!-- PassFailed1 Test -->
+</suite> <!-- PassFailed1 -->

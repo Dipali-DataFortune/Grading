@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Faculty Suite">
+  <test name="Faculty Test">
+    <classes>
+      <class name="com.Grading.Test.GradingFacultyTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

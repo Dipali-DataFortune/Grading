@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<suite-files>
+
+<suite-file path="GradingXml\\AdminTest1.xml"></suite-file>
+
+<suite-file path="GradingXml\\AdminTest2.xml"></suite-file>
+
+<suite-file path="GradingXml\\AdminTest3.xml"></suite-file>
+
+<suite-file path="GradingXml\\CourseTest1.xml"></suite-file>
+
+<suite-file path="GradingXml\\CourseTest2.xml"></suite-file>
+
+<suite-file path="GradingXml\\CourseTest3.xml"></suite-file>
+
+<suite-file path="GradingXml\\CourseTest4.xml"></suite-file>
+
+<suite-file path="GradingXml\\DashBoardTest.xml"></suite-file>
+
+<suite-file path="GradingXml\\Faculty.xml"></suite-file>
+
+<suite-file path="GradingXml\\PreferenceTest.xml"></suite-file>
+
+<suite-file path="GradingXml\\StudentTest.xml"></suite-file>
+
+<suite-file path="GradingXml\\PassFailed1.xml"></suite-file>
+
+<suite-file path="GradingXml\\PassFailed2.xml"></suite-file>
+
+
+</suite-files> 
+ 
+</suite>
