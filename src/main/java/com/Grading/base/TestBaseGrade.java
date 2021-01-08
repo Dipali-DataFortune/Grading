@@ -11,22 +11,29 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.asserts.SoftAssert;
 
-public class TestBaseGrade 
-{
+import com.Grading.Objects.GradeCoursePage4;
+
+public class TestBaseGrade {
 	public static WebDriver driver;
 	public static Properties prop;
 	public static String currentDirectory = System.getProperty("user.dir");
 
+	
 	public TestBaseGrade() {
 		try {
 			prop = new Properties();
 			FileInputStream IP = new FileInputStream(currentDirectory + "\\config.properties");
-			//FileInputStream IP = new FileInputStream("C:\\Users\\Dipali.vaidya\\Documents\\Grading\\APSTest\\config.properties");
+			// FileInputStream IP = new
+			// FileInputStream("C:\\Users\\Dipali.vaidya\\Documents\\Grading\\APSTest\\config.properties");
 			prop.load(IP);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -41,8 +48,10 @@ public class TestBaseGrade
 		String browser = prop.getProperty("Browser");
 		if (browser.equals("chrome")) {
 
-			//System.setProperty("webdriver.chrome.driver", currentDirectory + "\\Driver\\chromedriver.exe");
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Dipali.vaidya\\Documents\\ChromeDriver\\chromedriver.exe");
+			// System.setProperty("webdriver.chrome.driver", currentDirectory +
+			// "\\Driver\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver",
+					"C:\\Users\\Dipali.vaidya\\Documents\\ChromeDriver\\chromedriver.exe");
 
 			driver = new ChromeDriver();
 			driver.get(prop.getProperty("url"));
@@ -57,6 +66,7 @@ public class TestBaseGrade
 
 		Thread.sleep(3000);
 	}
+
 	@AfterSuite()
 	public void finish() {
 		driver.quit();
@@ -75,29 +85,28 @@ public class TestBaseGrade
 
 	}
 
-	public static void highLightElement(WebDriver driver, WebElement element){
+	public static void highLightElement(WebDriver driver, WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", element);
 	}
-	  public void staleElementClick(int loopCount, WebElement element, int time) {
 
-	        new WebDriverWait(driver, time)
-	        .ignoring(StaleElementReferenceException.class)
-	        .until(ExpectedConditions.visibilityOf(element));     
-	        highLightElement(driver, element);
+	public static void staleElementClick(int loopCount, WebElement element, int time) {
 
-	        for(int i=0; i<=loopCount;i++)
-	        {
-	            try{
-	                element.click();
-	                break;
-	            }
-	            catch(Exception e){
-	                System.out.println(e.getMessage());
-	            }
-	        }
+		new WebDriverWait(driver, time).ignoring(StaleElementReferenceException.class)
+				.until(ExpectedConditions.visibilityOf(element));
+		highLightElement(driver, element);
 
-	    }
+		for (int i = 0; i <= loopCount; i++) {
+			try {
+				element.click();
+				break;
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+
+	}
+
+	
+
 }
-
-

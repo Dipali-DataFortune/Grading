@@ -3,7 +3,7 @@
 <suite name="CourseTest3">
   <test name="CourseTest3 Test">
     <classes>
-      <class name="com.Grading.Test.GradeCourseTest4"/>
+    <class name="com.Grading.Test.GradeCourseTest5"/>
     </classes>
   </test> <!-- CourseTest3 Test -->
 </suite> <!-- CourseTest3 -->
