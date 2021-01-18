@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Course Suite 4">
-  <test name="CourseTest4 Test">
+<suite name="Course Suite 4A">
+  <test name="CourseTest4A Test">
     <classes>
-    <class name="com.Grading.Test.GradeCourseTest4"/>
+      <class name="com.Grading.Test.GradeCourseTest4A"/>
     </classes>
   </test> <!-- CourseTest3 Test -->
 </suite> <!-- CourseTest3 -->

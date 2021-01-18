@@ -62,9 +62,9 @@ public class TestBaseGrade {
 		}
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 	}
 
 	@AfterSuite()
