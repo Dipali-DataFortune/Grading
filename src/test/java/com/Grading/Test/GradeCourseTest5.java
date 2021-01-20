@@ -336,7 +336,7 @@ public class GradeCourseTest5 extends TestBaseGrade{
 	public void VerifysearchCourseAgain() throws InterruptedException {
 		GradeCoursePage5 Gr1 = PageFactory.initElements(driver,GradeCoursePage5.class);
 		Gr1.searchCourse();		
-	}
+	}	
 	
 	@Test(priority = 51, enabled=true)
 	public void VerifystatusOnCourseListingPage() throws InterruptedException {
@@ -348,5 +348,94 @@ public class GradeCourseTest5 extends TestBaseGrade{
 	public void VerifyclickOnCourseAgain() throws InterruptedException {
 		GradeCoursePage5 Gr = PageFactory.initElements(driver,GradeCoursePage5.class);
 		Gr.clickOnCourse();
+	}
+	
+	@Test(priority = 53, enabled=true)
+	public void VerifygradingCourseDetailAttributes() throws InterruptedException {
+		GradeCoursePage5 Gr = PageFactory.initElements(driver,GradeCoursePage5.class);
+		Gr.gradingCourseDetailAttributes();
+		VerifyclickOnCheckConformity();
+	}
+	
+	@Test(priority = 54, enabled=true)
+	public void VerifycheckAttributes() throws InterruptedException {
+		GradeCoursePage5 Gr = PageFactory.initElements(driver,GradeCoursePage5.class);
+		Gr.checkAttributes();
+	}
+	
+	@Test(priority = 55, enabled=true)
+	public void VerifybannerUploadAttribute() throws InterruptedException {
+		GradeCoursePage5 Gr = PageFactory.initElements(driver,GradeCoursePage5.class);
+		GradeCoursePage4A Gr1 = PageFactory.initElements(driver, GradeCoursePage4A.class);
+		Gr.bannerUploadAttribute();
+		Gr1.clickOnBack();
+	}
+	
+	@Test(priority = 56, enabled=true)
+	public void VerifyclickOnEmulationLink() throws InterruptedException {
+		GradeCoursePage4 Gr = PageFactory.initElements(driver, GradeCoursePage4.class);
+		GradeCoursePage5 Gr1 = PageFactory.initElements(driver,GradeCoursePage5.class);
+		Gr.clickOnEmulationLink();
+		Gr1.checkEmulationAttributes();		
+	}
+	
+	@Test(priority = 57, enabled=true)
+	public void VerifyclickOnViewGrades() throws InterruptedException {
+		GradeCoursePage4 Gr = PageFactory.initElements(driver,GradeCoursePage4.class);
+		Gr.clickOnViewGrades();
+	}
+	
+	@Test(priority = 58, enabled=true)
+	public void VerifyviewGradesAttributes() throws InterruptedException {
+		GradeCoursePage5 Gr = PageFactory.initElements(driver,GradeCoursePage5.class);
+		Gr.viewGradesAttributes();		
+	}
+	
+	@Test(priority = 59, enabled=true)
+	public void VerifycheckConformityAttributes() throws InterruptedException {
+		GradeCoursePage4 Gr = PageFactory.initElements(driver,GradeCoursePage4.class);
+		GradeCoursePage5 Gr1 = PageFactory.initElements(driver,GradeCoursePage5.class);
+		Gr.clickOnCheckConformity();
+		Gr1.checkConformityAttributes();		
+	}
+	
+	@Test(priority = 60, enabled=true)
+	public void VerifycancelEmul() throws InterruptedException {
+		GradeCoursePage4 Gr = PageFactory.initElements(driver,GradeCoursePage4.class);
+		Gr.cancelEmul();		
+	}
+	
+	@Test(priority = 61, enabled = true)
+	public void verifyCourseSearch() throws InterruptedException {
+		GradeCoursePage4A Gr = PageFactory.initElements(driver, GradeCoursePage4A.class);
+		GradeCoursePage5 Gr1 = PageFactory.initElements(driver,GradeCoursePage5.class);
+		VerifysearchCourse();
+		Gr1.clickOnCourse();
+		VerifyclickOnCheckConformity();			
+	}
+	
+	@Test(priority = 62, enabled = true)
+	public void verifyDeactivateClickAndAttributes() throws InterruptedException {
+		GradeCoursePage4 Gr1 = PageFactory.initElements(driver,GradeCoursePage4.class);
+		Gr1.DeactivateClick();
+		Gr1.DeactivateAttributes();		
+	}
+	
+	@Test(priority = 63, enabled = true)
+	public void verifyClickOnNoAndProceed() throws InterruptedException {
+		GradeCoursePage4 Gr1 = PageFactory.initElements(driver,GradeCoursePage4.class);
+		Gr1.ClickOnNoAndProceed();		
+	}
+	
+	@Test(priority = 64, enabled = true)
+	public void verifyClickOnYesAndProceed() throws InterruptedException {
+		GradeCoursePage4 Gr1 = PageFactory.initElements(driver,GradeCoursePage4.class);
+		Gr1.ClickOnYesAndProceed();		
+	}
+	
+	@Test(priority = 65, enabled = true)
+	public void verifycheckFinalStatus() throws InterruptedException {
+		GradeCoursePage4 Gr1 = PageFactory.initElements(driver,GradeCoursePage4.class);
+		Gr1.checkFinalStatus();		
 	}
 }

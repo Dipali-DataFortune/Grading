@@ -69,9 +69,10 @@ public class GradeCoursePage5 extends TestBaseGrade {
 	@FindBy(xpath = "(//td[@class='hidden-xs hideinmobile'])[1]")
 	WebElement RawScoreInputBox1;
 	
-	@FindBy(xpath = "(//span[contains(text(),'A+')])[1]")
+	//@FindBy(xpath = "(//span[contains(text(),'A+')])[1]")
+	@FindBy(xpath = "(//td[@class='hidden-xs hideinmobile'])[2]")
 	WebElement letter1;	
-	
+		
 	@FindBy(xpath = "(//p[contains(text(),'Pass')])[1]")
 	WebElement notes1;	
 	
@@ -219,6 +220,9 @@ public class GradeCoursePage5 extends TestBaseGrade {
 	
 	@FindBy(xpath = "(//div[@class='col-xs-12 col-sm-12 col-md-12 coursedetail'])[1]")
 	WebElement spring2020;
+
+	@FindBy(xpath = "//strong[contains(text(),'(FINAL GRADES - PENDING BANNER UPLOAD)')]")
+	WebElement StatusBannerUpload;
 	
 	
 	public GradeCoursePage5(WebDriver driver) {
@@ -1131,7 +1135,7 @@ public class GradeCoursePage5 extends TestBaseGrade {
 		softAssert.assertEquals(GC4.CourseDetails.isDisplayed(), true);
 		softAssert.assertEquals(GC5.ApprovalStatus.isDisplayed(), true);
 		softAssert.assertEquals(spring2020.isDisplayed(), true);
-		// softAssert1.assertEquals(Blind.isDisplayed(), true); //it should be no so,
+		// softAssert.assertEquals(Blind.isDisplayed(), true); //it should be no so,
 		// have commented this for now
 		softAssert.assertEquals(StudentCount.isDisplayed(), true);
 
@@ -1161,6 +1165,209 @@ public class GradeCoursePage5 extends TestBaseGrade {
 		 
 		  JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		  js1.executeScript("arguments[0].click()", GC4.Yes);		 
+	}
+	
+	public void gradingCourseDetailAttributes() {
+		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
+		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
+		WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		wait1.until(ExpectedConditions.visibilityOf(GC4.GradingRule));
+		softAssert.assertEquals(GC4.GradingRule.isEnabled(), true);
+		wait1.until(ExpectedConditions.visibilityOf(GC4.BackButton));
+		softAssert.assertEquals(GC4.BackButton.isEnabled(), true);
+		softAssert.assertEquals(GC5.checkconformity1.isEnabled(), true);
+		highLightElement(driver, GC5.StatusBannerUpload3);
+		softAssert.assertEquals(GC5.StatusBannerUpload3.isDisplayed(), true);
+
+		softAssert.assertEquals(CourseName.isDisplayed(), true);
+		softAssert.assertEquals(GC4.EmulationLink.isEnabled(), true);
+		softAssert.assertEquals(GC4.EmailLink.isEnabled(), true);
+		softAssert.assertEquals(InstructorName.isDisplayed(), true);
+		softAssert.assertEquals(GC4.DueDate.isDisplayed(), true);
+		softAssert.assertEquals(GC4.GradeTab.isEnabled(), true);
+		softAssert.assertEquals(GC4.HistoryTab.isEnabled(), true);
+		softAssert.assertEquals(GC4.IdName.isDisplayed(), true);
+		softAssert.assertEquals(GC4.RawScore.isDisplayed(), true);
+		softAssert.assertEquals(GC4.Letter1.isDisplayed(), true);
+		softAssert.assertEquals(GC4.Notes.isEnabled(), true);
+		
+		softAssert.assertEquals(IdName1.isDisplayed(), true);
+		softAssert.assertEquals(RawScoreInputBox1.isEnabled(), true);
+		softAssert.assertEquals(letter1.isDisplayed(), true);
+		softAssert.assertEquals(notes1.isDisplayed(), true);
+		
+		// softAssert.assertEquals(Paper1.isDisplayed(), false);
+		// softAssert.assertEquals(Publish1.isDisplayed(), false);
+
+		softAssert.assertEquals(GC4.RecentNotes.isDisplayed(), true);
+		softAssert.assertEquals(GC4.CourseDetails.isDisplayed(), true);
+		highLightElement(driver, GC5.StatusBannerUpload1);
+		softAssert.assertEquals(GC5.StatusBannerUpload1.isDisplayed(), true);
+		softAssert.assertEquals(spring2020.isDisplayed(), true);
+		// softAssert.assertEquals(Blind.isDisplayed(), true); 
+		softAssert.assertEquals(StudentCount.isDisplayed(), true);
+
+		System.out.println("All course final approval attributes are verified");
+	}
+	
+	public void checkAttributes() {
+		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
+		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		wait.until(ExpectedConditions.visibilityOf(GC4.GradingRule));
+		softAssert.assertEquals(GC4.GradingRule.isEnabled(), true);
+		wait.until(ExpectedConditions.visibilityOf(GC4.BackButton));
+		softAssert.assertEquals(GC4.BackButton.isEnabled(), true);
+		softAssert.assertEquals(GC5.deactivateButton.isEnabled(), true);
+		softAssert.assertEquals(CourseName.isDisplayed(), true);
+		softAssert.assertEquals(InstructorName1.isDisplayed(), true);
+		softAssert.assertEquals(greenMessage.isDisplayed(), true);
+		System.out.println(greenMessage.getText());
+		System.out.println(greenMessage.getCssValue("color"));
+		System.out.println("All attributes are verified");
+	}
+	
+	public void bannerUploadAttribute() {
+		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
+		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
+		//softAssert.assertEquals(GC4.RecentNotes.isDisplayed(), true);
+		WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		wait1.until(ExpectedConditions.visibilityOf(GC4.CourseDetails));
+		softAssert.assertEquals(GC4.CourseDetails.isDisplayed(), true);
+		softAssert.assertEquals(GC5.StatusBannerUpload2.isDisplayed(), true);
+		// softAssert.assertEquals(Blind.isDisplayed(), false);
+		scrollToElement(GC5.semSpring);
+		softAssert.assertEquals(GC5.semSpring.isDisplayed(), true);
+		softAssert.assertEquals(GC5.DistSchedule.isDisplayed(), true); // this is an extra attribute visible on portal
+		softAssert.assertEquals(GC5.BlindGradeNew.isDisplayed(), true); // it should be NO but here it is Yes, need to
+																		// check
+		softAssert.assertEquals(GC5.studRegister.isDisplayed(), true);
+		softAssert.assertEquals(GC5.studCountMean.isDisplayed(), true);
+		softAssert.assertEquals(GC5.classMean.isDisplayed(), true);
+
+		System.out.println("All final grade banner attributes are verified");
+	}
+	
+	public void checkEmulationAttributes() {
+		 
+		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
+		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		wait.until(ExpectedConditions.visibilityOf(GC4.GradingRule));
+	
+		softAssert.assertEquals(GC4.GradingRule.isEnabled(), true);
+		wait.until(ExpectedConditions.visibilityOf(GC4.CancelLink));
+		softAssert.assertEquals(GC4.CancelLink.isEnabled(), true);
+		softAssert.assertEquals(emulInstructorName.isDisplayed(), true);
+		softAssert.assertEquals(GC4.YourCourseLink.isDisplayed(), true);
+		softAssert.assertEquals(GC4.Title.isDisplayed(), true);
+		softAssert.assertEquals(GC4.ClassLevel.isDisplayed(), true);
+		softAssert.assertEquals(GC4.BlindGrade.isDisplayed(), true);
+		softAssert.assertEquals(GC4.CurrentStatus.isDisplayed(), true);
+		softAssert.assertEquals(GC4.GradingDueDate.isDisplayed(), true);
+
+		/*
+		 * WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		 * wait1.until(ExpectedConditions.visibilityOf(emulCourseTitle));
+		 */
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		softAssert.assertEquals(emulCourseTitle.isDisplayed(), true);
+		softAssert.assertEquals(CourseTitle1.isDisplayed(), true);
+		softAssert.assertEquals(ClassLevel1.isDisplayed(), true);
+		softAssert.assertEquals(BlindGrade1.isDisplayed(), true);
+		softAssert.assertEquals(GC5.StatusBannerUpload.isDisplayed(), true);
+		softAssert.assertEquals(GC5.ViewGradeButton.isEnabled(), true);
+
+		System.out.println("Emulation attributes are verified");
+	}
+	
+	public void viewGradesAttributes() {
+		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
+		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
+		WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		wait1.until(ExpectedConditions.visibilityOf(GC4.GradingRule));
+		softAssert.assertEquals(GC4.GradingRule.isEnabled(), true);
+		wait1.until(ExpectedConditions.visibilityOf(GC4.BackButton));
+		softAssert.assertEquals(GC4.BackButton.isEnabled(), true);
+		softAssert.assertEquals(GC5.checkconformity1.isEnabled(), true);
+		softAssert.assertEquals(GC5.StatusBannerUpload3.isDisplayed(), true);
+
+		softAssert.assertEquals(CourseName.isDisplayed(), true);
+		softAssert.assertEquals(InstructorName.isDisplayed(), true);
+
+		scrollToElement(GC4.DueDate);
+		softAssert.assertEquals(GC4.DueDate.isDisplayed(), true);
+		softAssert.assertEquals(GC4.GradeTab.isEnabled(), true);
+		softAssert.assertEquals(GC4.HistoryTab.isEnabled(), true);
+		// softAssert.assertEquals(copyPasteImport.isDisplayed(), false);
+		softAssert.assertEquals(GC4.IdName.isDisplayed(), true);
+		softAssert.assertEquals(GC4.RawScore.isDisplayed(), true);
+		softAssert.assertEquals(GC4.Letter1.isDisplayed(), true);
+		softAssert.assertEquals(GC4.Notes.isDisplayed(), true);
+
+		softAssert.assertEquals(IdName1.isDisplayed(), true);
+		softAssert.assertEquals(RawScoreInputBox1.isEnabled(), true);
+		softAssert.assertEquals(letter1.isDisplayed(), true);
+		softAssert.assertEquals(notes1.isDisplayed(), true);
+
+		// softAssert.assertEquals(Paper1.isDisplayed(), false);
+		// softAssert.assertEquals(Publish1.isDisplayed(), false);
+
+		softAssert.assertEquals(GC4.RecentNotes.isDisplayed(), true);
+		softAssert.assertEquals(GC4.CourseDetails.isDisplayed(), true);
+		softAssert.assertEquals(GC5.StatusBannerUpload1.isDisplayed(), true);
+		softAssert.assertEquals(spring2020.isDisplayed(), true);
+		// softAssert.assertEquals(Blind.isDisplayed(), false);
+		softAssert.assertEquals(StudentCount.isDisplayed(), true);
+
+		System.out.println("All view grade attributes are verified");
+	}
+	
+	public void checkConformityAttributes() {
+		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
+		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
+		WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		wait1.until(ExpectedConditions.visibilityOf(GC4.GradingRule));
+		softAssert.assertEquals(GC4.GradingRule.isEnabled(), true);
+		wait1.until(ExpectedConditions.visibilityOf(GC4.BackButton));
+		softAssert.assertEquals(GC4.BackButton.isEnabled(), true);
+		softAssert.assertEquals(CourseName.isDisplayed(), true);
+		softAssert.assertEquals(InstructorName1.isDisplayed(), true);
+		softAssert.assertEquals(GC5.CourseConformity.isDisplayed(), true);
+		softAssert.assertEquals(GC5.conformityReportMessage.isDisplayed(), true);
+		System.out.println(GC5.conformityReportMessage.getCssValue("color"));
+
+		//softAssert.assertEquals(GC4.RecentNotes.isDisplayed(), true);
+		softAssert.assertEquals(GC4.CourseDetails.isDisplayed(), true);
+		softAssert.assertEquals(StatusBannerUpload.isDisplayed(), true);
+
+		highLightElement(driver, GC5.semSpring);
+		softAssert.assertEquals(GC5.semSpring.isDisplayed(), true);
+		softAssert.assertEquals(GC5.DistSchedule.isDisplayed(), true); // this is an extra attribute visible on portal
+		softAssert.assertEquals(GC5.BlindGradeNew.isDisplayed(), true); // it should be NO but here it is Yes, need to check
+																		
+		softAssert.assertEquals(GC5.studRegister.isDisplayed(), true);
+		softAssert.assertEquals(GC5.studCountMean.isDisplayed(), true);
+		softAssert.assertEquals(GC5.classMean.isDisplayed(), true);
+
+		System.out.println("All attributes are verified");
+	}
+	
+	public void checkFinalStatus() {
+
+		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
+		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
+		
+		WebDriverWait wait1 = new WebDriverWait(driver, 90);
+		wait1.until(ExpectedConditions.visibilityOf(GC4.COURSE));
+		softAssert.assertEquals(GC4.COURSE.isDisplayed(), true);
+		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
+		GC4.searchBox.sendKeys("Intro to Fed Income Tax");
+
+		wait1.until(ExpectedConditions.visibilityOf(GC5.notActivatedStatus));
+		softAssert.assertEquals(GC5.notActivatedStatus.isDisplayed(), true);
+		System.out.println(GC5.notActivatedStatus.getText());
 	}
 
 }

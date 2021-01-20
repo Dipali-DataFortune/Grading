@@ -822,6 +822,7 @@ public class GradeCoursePage4 extends TestBaseGrade {
 		softAssert1.assertEquals(GC4.GradingRule.isEnabled(), true);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.BackButton));
 		softAssert1.assertEquals(GC4.BackButton.isEnabled(), true);
+		softAssert1.assertEquals(checkconformity1.isEnabled(), true);
 		highLightElement(driver, StatusBannerUpload3);
 		softAssert1.assertEquals(StatusBannerUpload3.isDisplayed(), true);
 
@@ -859,6 +860,7 @@ public class GradeCoursePage4 extends TestBaseGrade {
 	public void clickOnCheckConformity() {
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.visibilityOf(checkconformity1));
+		scrollToElement(checkconformity1);
 		// checkconformity1.click();
 		highLightElement(driver, checkconformity1);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
