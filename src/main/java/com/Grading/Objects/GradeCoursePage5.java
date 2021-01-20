@@ -308,82 +308,7 @@ public class GradeCoursePage5 extends TestBaseGrade {
 		js.executeScript("arguments[0].click()", CourseLink);
 	}
 
-	/*
-	 * public void NavigateToDashboardAndActivateCourse(String courseName, String
-	 * crn) throws InterruptedException { GradeCoursePage4 GC4 =
-	 * PageFactory.initElements(driver, GradeCoursePage4.class); WebDriverWait wait
-	 * = new WebDriverWait(driver, 60);
-	 * wait.until(ExpectedConditions.visibilityOf(GC4.spring2020));
-	 * GC4.spring2020.click();
-	 * 
-	 * wait.until(ExpectedConditions.visibilityOf(GC4.GradingSchedule));
-	 * GC4.GradingSchedule.click();
-	 * 
-	 * wait.until(ExpectedConditions.visibilityOf(GC4.CourseTab));
-	 * staleElementClick(6, GC4.CourseTab, 60); // CourseTab.click();
-	 * 
-	 * JavascriptExecutor js= (JavascriptExecutor)driver;
-	 * js.executeAsyncScript("arguments[0].click()", CourseTab);
-	 * 
-	 * 
-	 * 
-	 * scrollToElement(customTag);
-	 * 
-	 * wait.until(ExpectedConditions.visibilityOf(customTag)); customTag.click();
-	 * wait.until(ExpectedConditions.visibilityOf(automatedTag));
-	 * automatedTag.click();
-	 * 
-	 * 
-	 * //driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-	 * wait.until(ExpectedConditions.visibilityOf(GC4.COURSE));
-	 * //softAssert.assertEquals(GC4.COURSE.isDisplayed(), true);
-	 * 
-	 * wait.until(ExpectedConditions.visibilityOf(GC4.searchBox));
-	 * 
-	 * highLightElement(driver, GC4.searchBox); GC4.searchBox.sendKeys(courseName);
-	 * 
-	 * wait.until(ExpectedConditions.visibilityOf(GC4.CourseCheckBox));
-	 * 
-	 * highLightElement(driver, GC4.CourseCheckBox);
-	 * driver.manage().timeouts().setScriptTimeout(1, TimeUnit.SECONDS);
-	 * Thread.sleep(5000); GC4.CourseCheckBox.click();
-	 * 
-	 * 
-	 * JavascriptExecutor js= (JavascriptExecutor)driver;
-	 * js.executeAsyncScript("arguments[0].click()", CourseCheckBox);
-	 * 
-	 * 
-	 * wait.until(ExpectedConditions.visibilityOf(GC4.ActivateButton)); //
-	 * softAssert.assertEquals(ActivateButton.isEnabled(), true);
-	 * highLightElement(driver, GC4.ActivateButton); GC4.ActivateButton.click();
-	 * //Thread.sleep(5000);
-	 * 
-	 * 
-	 * driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-	 * //Cross.click(); JavascriptExecutor js= (JavascriptExecutor)driver;
-	 * js.executeScript("arguments[0].click()", GC4.Cross);
-	 * driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-	 * GC4.searchBox.sendKeys(crn); Thread.sleep(5000);
-	 * 
-	 * //driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-	 * 
-	 * 
-	 * WebDriverWait wait1 = new WebDriverWait(driver, 60);
-	 * wait1.until(ExpectedConditions.visibilityOf(CourseStatus));
-	 * 
-	 * 
-	 * softAssert.assertEquals(GC4.CourseStatus.isDisplayed(), true); String
-	 * courseStatusNew = GC4.CourseStatus.getText();
-	 * System.out.println(courseStatusNew); Assert.assertEquals(courseStatusNew,
-	 * "Initial Grading Phase"); softAssert.assertEquals(CourseLink.isEnabled(),
-	 * true);
-	 * 
-	 * driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS); //
-	 * CourseLink.click();
-	 * //wait.until(ExpectedConditions.visibilityOf(CourseLink));
-	 * //JavascriptExecutor js = (JavascriptExecutor) driver;
-	 * js.executeScript("arguments[0].click()", CourseLink); }
-	 */
+	
 
 	public void courseAttributesVerification() {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
@@ -655,16 +580,6 @@ public class GradeCoursePage5 extends TestBaseGrade {
 		 * softAssert.assertEquals(GC4.PublishCheckbox.isEnabled(), false);
 		 */
 		System.out.println("All attributes are verified");
-
-		/*
-		 * softAssert.assertEquals(GC4.RecentNotes.isDisplayed(), true);
-		 * softAssert.assertEquals(GC4.CourseDetails.isDisplayed(), true);
-		 * softAssert.assertEquals(GC4.CourseStatus1.isDisplayed(), true);
-		 * softAssert.assertEquals(GC4.TermSpring20.isDisplayed(), true); //
-		 * softAssert.assertEquals(Blind.isDisplayed(), true);
-		 * softAssert.assertEquals(StudentCount.isDisplayed(), true); System.out.
-		 * println("All the recent notes and course details attributes are verified");
-		 */
 	}
 
 	public void finalGradeAttributes1() {
@@ -1090,12 +1005,15 @@ public class GradeCoursePage5 extends TestBaseGrade {
 //		softAssert.assertEquals(GC4.COURSE.isDisplayed(), true);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
 		GC4.searchBox.sendKeys("Immigr Policy across Branches");
+		//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	}
 
 	public void clickOnCourse() {
 		//GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		// clickOnCourse();
 		// CourseLink.click();
+		WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		wait1.until(ExpectedConditions.visibilityOf(CourseLink));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click()", CourseLink);
 	}

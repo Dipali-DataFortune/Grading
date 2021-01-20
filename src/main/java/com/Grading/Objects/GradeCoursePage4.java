@@ -471,13 +471,17 @@ public class GradeCoursePage4 extends TestBaseGrade {
 		softAssert1.assertEquals(GC4.COURSE.isDisplayed(), true);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
 		GC4.searchBox.sendKeys("Intro to Fed Income Tax");
-
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	}
 
 	public void clickOnCourse() {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		// clickOnCourse();
 		// CourseLink.click();
+		/*
+		 * WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		 * wait1.until(ExpectedConditions.visibilityOf(GC4.CourseLink));
+		 */
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click()", GC4.CourseLink);
 
@@ -620,14 +624,14 @@ public class GradeCoursePage4 extends TestBaseGrade {
 		highLightElement(driver, GC4.searchBox);
 		GC4.searchBox.sendKeys("Intro to Fed Income Tax");
 
-		Thread.sleep(5000);
+		//Thread.sleep(6000);
 
 		WebDriverWait wait1 = new WebDriverWait(driver, 60);
 		wait1.until(ExpectedConditions.visibilityOf(finalGradeNotApprovedStatus));
 
 		// driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		softAssert1.assertEquals(finalGradeNotApprovedStatus.isDisplayed(), true);
 		highLightElement(driver, finalGradeNotApprovedStatus);
+		softAssert1.assertEquals(finalGradeNotApprovedStatus.isDisplayed(), true);
 		System.out.println(finalGradeNotApprovedStatus.getText());
 
 		// clickOnCourse();

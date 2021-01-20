@@ -948,6 +948,7 @@ public class GradeCoursePage4A extends TestBaseGrade {
 		softAssert.assertEquals(EmulInstructorName.isDisplayed(), true);
 		softAssert.assertEquals(BackButton.isEnabled(), true);
 		softAssert.assertEquals(ProceedButton.isEnabled(), true);
+		softAssert.assertEquals(initialStatus.isEnabled(), true);
 		softAssert.assertEquals(courseTitle.isDisplayed(), true);
 		softAssert.assertEquals(Instructor.isDisplayed(), true);
 		softAssert.assertEquals(GradingDueDate2.isDisplayed(), true);
@@ -1019,6 +1020,7 @@ public class GradeCoursePage4A extends TestBaseGrade {
 		softAssert.assertEquals(CourseTitle.isDisplayed(), true);
 		softAssert.assertEquals(proceedInstructor.isDisplayed(), true);
 		softAssert.assertEquals(ConformityMessage.isDisplayed(), true);
+		System.out.println(ConformityMessage.getText());
 		System.out.println(ConformityMessage.getCssValue("color"));
 		softAssert.assertEquals(BlueBox.isDisplayed(), true);
 		System.out.println(BlueBox.getCssValue("color"));
