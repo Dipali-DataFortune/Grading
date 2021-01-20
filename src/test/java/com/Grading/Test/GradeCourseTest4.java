@@ -249,7 +249,7 @@ public class GradeCourseTest4 extends TestBaseGrade {
 	public void verifyclickOnResubmitFinalGrade() throws InterruptedException {
 		GradeCoursePage4 Gr = PageFactory.initElements(driver, GradeCoursePage4.class);
 		Gr.clickOnResubmitFinalGrade();
-		// Gr.resubmitAttributes();
+		Gr.resubmitAttributes();
 	}
 
 	@Test(priority = 33, enabled = true)
@@ -257,6 +257,7 @@ public class GradeCourseTest4 extends TestBaseGrade {
 		GradeCoursePage4 Gr = PageFactory.initElements(driver, GradeCoursePage4.class);
 		VerifysaveNote();
 		// VerifyclickOnCancelEmulation();
+		Gr.checkApprovalStatus();
 		Gr.cancelEmul();
 	}
 
@@ -270,6 +271,7 @@ public class GradeCourseTest4 extends TestBaseGrade {
 	@Test(priority = 35, enabled = true)
 	public void verifyCheckConformityAttributes() throws InterruptedException {
 		GradeCoursePage4 Gr = PageFactory.initElements(driver, GradeCoursePage4.class);
+		//Gr.clickOnCheckConformity();
 		Gr.checkConformityPageAttributes();
 	}
 

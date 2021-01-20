@@ -749,6 +749,7 @@ public class GradeCoursePage4 extends TestBaseGrade {
 		softAssert1.assertEquals(GC4.courseTitle.isDisplayed(), true);
 		softAssert1.assertEquals(GC4.InstructorNew.isDisplayed(), true);
 		softAssert1.assertEquals(conformityReportMessage.isDisplayed(), true);
+		System.out.println(conformityReportMessage.getCssValue("color"));
 	}
 
 	public void clickOnResubmitFinalGrade() {
