@@ -50,6 +50,10 @@ public class GradeCoursePage6 extends TestBaseGrade{
 	@FindBy(xpath = "(//div[@class='col-xs-12 col-sm-12 col-md-12 coursedetail'])[3]")
 	WebElement StudentCount;
 	
+	@FindBy(xpath = "//strong[contains(text(),'(CANCEL)')]")
+	WebElement CancelLink;
+	
+	
 	public GradeCoursePage6(WebDriver driver)
 	{
 		this.driver = driver;
@@ -155,7 +159,7 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		GradeCoursePage5 GC = PageFactory.initElements(driver, GradeCoursePage5.class);
 		softAssert.assertEquals(GC4.GradingRule.isEnabled(), true);
-		softAssert.assertEquals(GC4.CancelLink.isEnabled(), true);
+		softAssert.assertEquals(CancelLink.isEnabled(), true);
 		softAssert.assertEquals(emulInstructorName.isDisplayed(), true);
 		softAssert.assertEquals(GC4.YourCourseLink.isDisplayed(), true);
 		softAssert.assertEquals(GC4.Title.isDisplayed(), true);
