@@ -129,7 +129,7 @@ public class GradeCourseTest5 extends TestBaseGrade{
 		Gr.clickOnConfirmationAlert();
 	}
 	
-	@Test(priority = 17, enabled=true)
+	@Test(priority = 17, enabled=false)
 	public void VerifyConfirmationAlertYes() throws InterruptedException {
 		GradeCoursePage4A Gr = PageFactory.initElements(driver,GradeCoursePage4A.class);
 		Gr.ConfirmationAlertYes();
