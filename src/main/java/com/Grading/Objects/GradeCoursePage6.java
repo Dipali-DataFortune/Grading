@@ -74,6 +74,22 @@ public class GradeCoursePage6 extends TestBaseGrade{
 	@FindBy(xpath = "//span[contains(text(),'Midassessment Released')]")
 	WebElement gradingStatus2;
 	
+	@FindBy(xpath = "//strong[contains(text(),'(MIDASSESSMENT RELEASED)')]")
+	WebElement gradingStatus3;
+	
+	@FindBy(xpath = "//a[contains(text(),'STUDENTS')]")
+	WebElement studTab;
+	
+	@FindBy(xpath = "//input[@id='search']")
+	WebElement searchBoxStud;
+	
+	@FindBy(xpath = "//em[@class='fas fa-user mr-3' and @title='Emulate']")
+	WebElement emulStud;
+	
+	@FindBy(xpath = "(//td[@class='col-4 col-md-4'])[6]")
+	WebElement midAssesmentScore;
+	
+	
 	public GradeCoursePage6(WebDriver driver)
 	{
 		this.driver = driver;
@@ -570,6 +586,73 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		softAssert.assertEquals(StudentCount.isDisplayed(), true);
 
 		System.out.println("All view grade attributes are verified");
+	}
+	
+	public void checkConformityAttributes() {
+		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
+		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
+		GradeCoursePage5 GC = PageFactory.initElements(driver, GradeCoursePage5.class);
+		WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		wait1.until(ExpectedConditions.visibilityOf(GC4.GradingRule));
+		softAssert.assertEquals(GC4.GradingRule.isEnabled(), true);
+		wait1.until(ExpectedConditions.visibilityOf(GC4.BackButton));
+		softAssert.assertEquals(GC4.BackButton.isEnabled(), true);
+		softAssert.assertEquals(CourseName.isDisplayed(), true);
+		softAssert.assertEquals(InstructorName1.isDisplayed(), true);
+		softAssert.assertEquals(GC.greenMessage.isDisplayed(), true);
+		System.out.println(GC.greenMessage.getText());
+		System.out.println(GC.greenMessage.getCssValue("color"));
+
+		softAssert.assertEquals(GC4.CourseDetails.isDisplayed(), true);
+		softAssert.assertEquals(gradingStatus3.isDisplayed(), true);
+
+		highLightElement(driver, GC5.semSpring);
+		softAssert.assertEquals(GC5.semSpring.isDisplayed(), true);
+		softAssert.assertEquals(GC5.DistSchedule.isDisplayed(), true); // this is an extra attribute visible on portal
+		softAssert.assertEquals(GC5.BlindGradeNew.isDisplayed(), true); // it should be NO but here it is Yes, need to check
+																		
+		softAssert.assertEquals(GC5.studRegister.isDisplayed(), true);
+		  softAssert.assertEquals(StudentCount1.isDisplayed(), true);
+		  softAssert.assertEquals(classMean.isDisplayed(), true);		
+
+		System.out.println("All attributes are verified");
+	}
+	
+	public void clickOnStudentsTab()
+	{
+		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
+		WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		wait1.until(ExpectedConditions.visibilityOf(studTab));
+		studTab.click();
+		wait1.until(ExpectedConditions.visibilityOf(searchBoxStud));
+		searchBoxStud.sendKeys("Bloomer");
+		emulStud.click();
+		scrollToElement(midAssesmentScore);
+		softAssert.assertEquals(midAssesmentScore.isDisplayed(), true);
+		System.out.println("Raw score displayed for Adv Legal Research, CRN 38884 matches with the raw score submitted by the Instructor");
+		
+		scrollToElement(GC5.cancelEmulation);
+		wait1.until(ExpectedConditions.visibilityOf(GC5.cancelEmulation));
+		highLightElement(driver, GC5.cancelEmulation);
+		// cancelEmulation.click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click()", GC5.cancelEmulation);
+	}
+	
+	public void checkFinalStatus() {
+
+		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
+		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
+		
+		WebDriverWait wait1 = new WebDriverWait(driver, 90);
+		wait1.until(ExpectedConditions.visibilityOf(GC4.COURSE));
+		softAssert.assertEquals(GC4.COURSE.isDisplayed(), true);
+		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
+		GC4.searchBox.sendKeys("Adv Legal Research");
+
+		wait1.until(ExpectedConditions.visibilityOf(GC5.notActivatedStatus));
+		softAssert.assertEquals(GC5.notActivatedStatus.isDisplayed(), true);
+		System.out.println(GC5.notActivatedStatus.getText());
 	}
 	
 }

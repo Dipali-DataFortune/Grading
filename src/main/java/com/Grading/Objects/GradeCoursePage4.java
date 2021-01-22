@@ -687,15 +687,7 @@ public class GradeCoursePage4 extends TestBaseGrade {
 		softAssert1.assertEquals(GC4.GradingDueDate2.isDisplayed(), true);
 		softAssert1.assertEquals(GC4.GradeTab.isEnabled(), true);
 		softAssert1.assertEquals(GC4.HistoryTab.isEnabled(), true);
-		/*
-		 * softAssert1.assertEquals(IdName.isDisplayed(), true);
-		 * softAssert1.assertEquals(RawScore.isDisplayed(), true);
-		 * softAssert1.assertEquals(Letter1.isDisplayed(), true);
-		 * softAssert1.assertEquals(Notes.isDisplayed(), true);
-		 * softAssert1.assertEquals(BestExam.isDisplayed(), true);
-		 * softAssert1.assertEquals(PublishLibrary.isDisplayed(), true);
-		 */
-
+		
 		softAssert1.assertEquals(IdNameTitle.isDisplayed(), true);
 		softAssert1.assertEquals(rawTitle.isDisplayed(), true);
 		softAssert1.assertEquals(LetterGradeTitle.isDisplayed(), true);
