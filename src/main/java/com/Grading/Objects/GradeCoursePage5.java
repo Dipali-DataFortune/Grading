@@ -997,14 +997,17 @@ public class GradeCoursePage5 extends TestBaseGrade {
 		js.executeScript("arguments[0].click()", GC5.cancelEmulation);
 	}
 
-	public void searchCourse() {
+	public void searchCourse() throws InterruptedException {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 
 		WebDriverWait wait1 = new WebDriverWait(driver, 60);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.COURSE));
 //		softAssert.assertEquals(GC4.COURSE.isDisplayed(), true);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
-		GC4.searchBox.sendKeys("Immigr Policy across Branches");
+		//GC4.searchBox.sendKeys("Immigr Policy across Branches");
+		highLightElement(driver, GC4.searchBox);
+		GC4.searchBox.sendKeys("38897");
+		//Thread.sleep(3000);
 		//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	}
 
@@ -1281,7 +1284,7 @@ public class GradeCoursePage5 extends TestBaseGrade {
 		wait1.until(ExpectedConditions.visibilityOf(GC4.COURSE));
 		softAssert.assertEquals(GC4.COURSE.isDisplayed(), true);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
-		GC4.searchBox.sendKeys("Intro to Fed Income Tax");
+		GC4.searchBox.sendKeys("Immigr Policy across Branches");
 
 		wait1.until(ExpectedConditions.visibilityOf(GC5.notActivatedStatus));
 		softAssert.assertEquals(GC5.notActivatedStatus.isDisplayed(), true);

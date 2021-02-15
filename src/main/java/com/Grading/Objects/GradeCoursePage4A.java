@@ -690,7 +690,7 @@ public class GradeCoursePage4A extends TestBaseGrade {
 		GradingSchedule.click();
 
 		wait.until(ExpectedConditions.visibilityOf(CourseTab));
-		staleElementClick(6, CourseTab, 60);
+		staleElementClick(5, CourseTab, 60);
 		// CourseTab.click();
 		/*
 		 * JavascriptExecutor js= (JavascriptExecutor)driver;

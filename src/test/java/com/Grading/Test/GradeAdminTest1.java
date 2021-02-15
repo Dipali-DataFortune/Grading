@@ -8,7 +8,7 @@ import com.Grading.Objects.GradeAdminPage1;
 import com.Grading.Objects.LoginGrade;
 import com.Grading.base.TestBaseGrade;
 
-public class GradeAdminTest1 extends TestBaseGrade
+public class GradeAdminTest1 extends TestBaseGrade	
 {
 	@Test(priority = 0)
 	public void LoginGrade1()throws InterruptedException {
