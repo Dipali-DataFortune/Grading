@@ -197,19 +197,13 @@ public class GradeCourseTest4 extends TestBaseGrade {
 	@Test(priority = 25, enabled = true)
 	public void verifysearchCourseAgain() throws InterruptedException {
 		GradeCoursePage4 Gr = PageFactory.initElements(driver, GradeCoursePage4.class);
-		Gr.searchCourseAgain();
-		// Gr.clickOnCourse();
-		// GCT4.VerifyClickOnEmulation();
+		Gr.searchCourseAgain();		
 	}
 
 	@Test(priority = 26, enabled = true)
 	public void verifyclickOnCourseAgain() throws InterruptedException {
 		GradeCoursePage4 Gr = PageFactory.initElements(driver, GradeCoursePage4.class);
-		// GradeCoursePage4 Gr1 = PageFactory.initElements(driver,
-		// GradeCoursePage4.class);
-		// Gr.searchCourseAgain();
 		Gr.clickOnCourse();
-
 	}
 
 	@Test(priority = 27, enabled = true)

@@ -470,17 +470,15 @@ public class GradeCoursePage4 extends TestBaseGrade {
 		softAssert1.assertEquals(GC4.COURSE.isDisplayed(), true);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
 		GC4.searchBox.sendKeys("Intro to Fed Income Tax");
-		//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	}
 
 	public void clickOnCourse() {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
-		// clickOnCourse();
-		// CourseLink.click();
-		/*
-		 * WebDriverWait wait1 = new WebDriverWait(driver, 60);
-		 * wait1.until(ExpectedConditions.visibilityOf(GC4.CourseLink));
-		 */
+				
+		WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		wait1.until(ExpectedConditions.visibilityOf(GC4.CourseLink));
+		 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click()", GC4.CourseLink);
 
@@ -616,17 +614,17 @@ public class GradeCoursePage4 extends TestBaseGrade {
 
 	public void searchCourseAgain() throws InterruptedException {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.visibilityOf(GC4.COURSE));
 		softAssert1.assertEquals(GC4.COURSE.isDisplayed(), true);
 		wait.until(ExpectedConditions.visibilityOf(GC4.searchBox));
 		highLightElement(driver, GC4.searchBox);
 		GC4.searchBox.sendKeys("Intro to Fed Income Tax");
 
-		Thread.sleep(3000);
+		//Thread.sleep(5000);
 
-		WebDriverWait wait1 = new WebDriverWait(driver, 60);
-		wait1.until(ExpectedConditions.visibilityOf(finalGradeNotApprovedStatus));
+		//WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		wait.until(ExpectedConditions.visibilityOf(finalGradeNotApprovedStatus));
 		
 		highLightElement(driver, finalGradeNotApprovedStatus);
 		softAssert1.assertEquals(finalGradeNotApprovedStatus.isDisplayed(), true);
@@ -804,8 +802,8 @@ public class GradeCoursePage4 extends TestBaseGrade {
 		//WebDriverWait wait1 = new WebDriverWait(driver, 60);
 		//wait1.until(ExpectedConditions.visibilityOf(StatusBannerUpload));
 		 
-		//Thread.sleep(3000);
 		highLightElement(driver, StatusBannerUpload);
+		//Thread.sleep(3000);
 		softAssert1.assertEquals(StatusBannerUpload.isDisplayed(), true);
 		System.out.println(StatusBannerUpload.getText());
 	}

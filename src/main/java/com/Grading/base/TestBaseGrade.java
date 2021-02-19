@@ -90,22 +90,22 @@ public class TestBaseGrade {
 		js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", element);
 	}
 
-	public static void staleElementClick(int loopCount, WebElement element, int time) {
-
-		new WebDriverWait(driver, time).ignoring(StaleElementReferenceException.class)
-				.until(ExpectedConditions.visibilityOf(element));
-		highLightElement(driver, element);
-
-		for (int i = 0; i <= loopCount; i++) {
-			try {
-				element.click();
-				break;
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
+		public static void staleElementClick(int loopCount, WebElement element, int time) {
+	
+			new WebDriverWait(driver, time).ignoring(StaleElementReferenceException.class)
+					.until(ExpectedConditions.visibilityOf(element));
+			highLightElement(driver, element);
+	
+			for (int i = 0; i <= loopCount; i++) {
+				try {
+					element.click();
+					break;
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
 			}
+	
 		}
-
-	}
 
 	
 
