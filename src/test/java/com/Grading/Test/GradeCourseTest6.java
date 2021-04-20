@@ -190,114 +190,121 @@ public class GradeCourseTest6 extends TestBaseGrade{
 	}
 	
 	@Test(priority = 27, enabled=true)
-	public void VerifysearchCourseAgain() throws InterruptedException {
+	public void VerifystatusOnCourseListingPage() throws InterruptedException {
 		GradeCoursePage6 Gr1 = PageFactory.initElements(driver,GradeCoursePage6.class);
-		Gr1.searchCourse();		
-	}	
+		Gr1.searchCourse();
+		Gr1.statusOnCourseListingPage();
+	}
 	
 	@Test(priority = 28, enabled=true)
-	public void VerifystatusOnCourseListingPage() throws InterruptedException {
-		GradeCoursePage4 Gr = PageFactory.initElements(driver,GradeCoursePage4.class);
-		Gr.statusOnCourseListingPage();
+	public void VerifyclickOnCourseAgain() throws InterruptedException {
+		GradeCoursePage6 Gr1 = PageFactory.initElements(driver,GradeCoursePage6.class);
+		VerifyclickOnCourse();
 	}
 	
 	@Test(priority = 29, enabled=true)
-	public void VerifyCheckConformity() throws InterruptedException {
-		GradeCoursePage4 Gr = PageFactory.initElements(driver,GradeCoursePage4.class);
-		VerifyclickOnCourse();
-		VerifyclickOnCheckConformity();
+	public void VerifygradingCourseDetailAttributes() throws InterruptedException {
+		GradeCoursePage6 Gr1 = PageFactory.initElements(driver,GradeCoursePage6.class);
+		Gr1.gradingCourseDetailAttributes();
+		//VerifyclickOnCheckConformity();
 	}
 	
 	@Test(priority = 30, enabled=true)
+	public void VerifyCheckConformity() throws InterruptedException {
+		GradeCoursePage6 Gr1 = PageFactory.initElements(driver,GradeCoursePage6.class);
+		VerifyclickOnCheckConformity();
+	}
+	
+	@Test(priority = 31, enabled=true)
 	public void VerifycheckAttributes() throws InterruptedException {
 		GradeCoursePage6 Gr1 = PageFactory.initElements(driver,GradeCoursePage6.class);
 		Gr1.checkAttributes();		
 		VerifyclickOnBack();
 	}
 	
-	@Test(priority = 31, enabled=true)
+	@Test(priority = 32, enabled=true)
 	public void VerifyclickOnEmulationLink() throws InterruptedException {
 		GradeCoursePage4 Gr = PageFactory.initElements(driver, GradeCoursePage4.class);
 		Gr.clickOnEmulationLink();						
 	}
 	
-	@Test(priority = 32, enabled=true)
+	@Test(priority = 33, enabled=true)
 	public void VerifyemulationAttributesVerificationAgain() throws InterruptedException {
 		GradeCoursePage6 Gr = PageFactory.initElements(driver,GradeCoursePage6.class);
 		Gr.emulationAttributesVerificationAgain();
 	}
 	
-	@Test(priority = 33, enabled=true)
+	@Test(priority = 34, enabled=true)
 	public void VerifyclickOnViewGrades() throws InterruptedException {
 		GradeCoursePage4 Gr = PageFactory.initElements(driver,GradeCoursePage4.class);
 		Gr.clickOnViewGrades();
 	}
 	
-	@Test(priority = 34, enabled=true)
+	@Test(priority = 35, enabled=true)
 	public void VerifyviewGradesAttributes() throws InterruptedException {
 		GradeCoursePage6 Gr = PageFactory.initElements(driver,GradeCoursePage6.class);
 		Gr.viewGradesAttributes();
 		VerifyclickOnCheckConformity();
 	}
 	
-	@Test(priority = 35, enabled=true)
+	@Test(priority = 36, enabled=true)
 	public void VerifycheckConformityAttributes() throws InterruptedException {
 		GradeCoursePage6 Gr = PageFactory.initElements(driver,GradeCoursePage6.class);
 		Gr.checkConformityAttributes();
 	}
 	
-	@Test(priority = 36, enabled=true)
+	@Test(priority = 37, enabled=true)
 	public void VerifyClickOnBack() throws InterruptedException {
 		GradeCoursePage6 Gr = PageFactory.initElements(driver,GradeCoursePage6.class);
 		VerifyclickOnBack();		
 	}
 	
-	@Test(priority = 37, enabled=true)
+	@Test(priority = 38, enabled=true)
 	public void VerifyclickOnEmulationLinkAgain() throws InterruptedException {
 		GradeCoursePage6 Gr = PageFactory.initElements(driver,GradeCoursePage6.class);
-		VerifyclickOnEmulationLink();
+		//VerifyclickOnEmulationLink();
 		VerifyclickOnCancelEmulation();
 	}
 	
-	@Test(priority = 38, enabled=true)
+	@Test(priority = 39, enabled=true)
 	public void VerifyclickOnStudentsTab() throws InterruptedException {
 		GradeCoursePage6 Gr = PageFactory.initElements(driver,GradeCoursePage6.class);
 		Gr.clickOnStudentsTab();
 	}
 	
-	@Test(priority = 39, enabled=true)
+	@Test(priority = 40, enabled=true)
 	public void VerifySearchCourseAgain() throws InterruptedException {
 		GradeCoursePage6 Gr = PageFactory.initElements(driver,GradeCoursePage6.class);
 		VerifysearchCourse();
 		VerifyclickOnCourse();
 	}
 	
-	@Test(priority = 40, enabled=true)
+	@Test(priority = 41, enabled=true)
 	public void VerifyClickOnCheckConformityAgain() throws InterruptedException {
 		GradeCoursePage4 Gr1 = PageFactory.initElements(driver,GradeCoursePage4.class);
 		VerifyclickOnCheckConformity();		
 	}
 	
-	@Test(priority = 41, enabled=true)
+	@Test(priority = 42, enabled=true)
 	public void VerifyDeactivateClick() throws InterruptedException {
 		GradeCoursePage4 Gr1 = PageFactory.initElements(driver,GradeCoursePage4.class);
 		Gr1.DeactivateClick();
 		Gr1.DeactivateAttributes();		
 	}
 	
-	@Test(priority = 42, enabled = true)
+	@Test(priority = 43, enabled = true)
 	public void verifyClickOnNoAndProceed() throws InterruptedException {
 		GradeCoursePage4 Gr1 = PageFactory.initElements(driver,GradeCoursePage4.class);
 		Gr1.ClickOnNoAndProceed();		
 	}
 	
-	@Test(priority = 43, enabled = true)
+	@Test(priority = 44, enabled = true)
 	public void verifyClickOnYesAndProceed() throws InterruptedException {
 		GradeCoursePage4 Gr1 = PageFactory.initElements(driver,GradeCoursePage4.class);
 		Gr1.ClickOnYesAndProceed();		
 	}
 	
-	@Test(priority = 44, enabled = true)
+	@Test(priority = 45, enabled = true)
 	public void verifycheckFinalStatus() throws InterruptedException {
 		GradeCoursePage6 Gr = PageFactory.initElements(driver,GradeCoursePage6.class);
 		Gr.checkFinalStatus();		

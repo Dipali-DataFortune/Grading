@@ -21,80 +21,88 @@ import com.Grading.base.TestBaseGrade;
  * @author dipali.vaidya
  *
  */
-public class GradeCoursePage6 extends TestBaseGrade{
-	
+public class GradeCoursePage6 extends TestBaseGrade {
+
 	WebDriver driver;
 	SoftAssert softAssert = new SoftAssert();
-	
+
 	@FindBy(xpath = "//span[contains(text(),'Adv Legal Research')]")
 	WebElement CourseLink;
-	
+
 	@FindBy(xpath = "//h2[contains(text(),'Adv Legal Research')]")
 	WebElement CourseName;
-	
+
 	@FindBy(xpath = "//span[contains(text(),'Martin Sampson')]")
 	WebElement InstructorName;
-	
+
 	@FindBy(xpath = "//h3[contains(text(),' Martin Sampson ')]")
 	WebElement InstructorName1;
-		
+
 	@FindBy(xpath = "//div[@class='d-inline-block']")
 	WebElement emulInstructorName;
-	
+
 	@FindBy(xpath = "(//td[@class='hidden-xs hideinmobile'])[1]")
 	WebElement emulCourseTitle;
-	
+
 	@FindBy(xpath = "//td[contains(text(),' Upperclass - UP<=9 Class ')]")
 	WebElement ClassLevel1;
-	
+
 	@FindBy(xpath = "(//td[@class='hidden-xs hideinmobile tabletext'])[1]")
 	WebElement IdName1;
-	
+
 	@FindBy(xpath = "(//div[@class='col-xs-12 col-sm-12 col-md-12 coursedetail'])[3]")
 	WebElement StudentCount;
-	
+
 	@FindBy(xpath = "(//div[@class='coursedetail'])[4]")
 	WebElement StudentCount1;
-		
+
 	@FindBy(xpath = "//strong[contains(text(),'(CANCEL)')]")
 	WebElement CancelLink;
-	
+
 	@FindBy(xpath = "//h1[contains(text(),'Final grades pending approval')]")
 	WebElement status;
-	
+
 	@FindBy(xpath = "(//div[@class='coursedetail'])[5]")
 	WebElement classMean;
-	
+
 	@FindBy(xpath = "//h1[contains(text(),'Midassessment Released')]")
 	WebElement gradingStatus;
-	
+
 	@FindBy(xpath = "//p[contains(text(),'Midassessment Released')]")
 	WebElement gradingStatus1;
 	
 	@FindBy(xpath = "//span[contains(text(),'Midassessment Released')]")
 	WebElement gradingStatus2;
-	
+
 	@FindBy(xpath = "//strong[contains(text(),'(MIDASSESSMENT RELEASED)')]")
 	WebElement gradingStatus3;
-	
+
 	@FindBy(xpath = "//a[contains(text(),'STUDENTS')]")
 	WebElement studTab;
-	
-	@FindBy(xpath = "//input[@id='search']")
+
+	@FindBy(xpath = "//input[@placeholder='Search by name, netID, or GUID...']")
 	WebElement searchBoxStud;
+
+	@FindBy(xpath = "//div[contains(text(),' Bloomer, Frederick ')]")
+	WebElement emulStudName;
 	
 	@FindBy(xpath = "//em[@class='fas fa-user mr-3' and @title='Emulate']")
 	WebElement emulStud;
-	
+
 	@FindBy(xpath = "(//td[@class='col-4 col-md-4'])[6]")
 	WebElement midAssesmentScore;
+
+	@FindBy(xpath = "//span[contains(text(),'Midassessment Released')]")
+	// @FindBy(xpath = "(//div[@class='disabled'])[2]")
+	WebElement courseListingPageStatus;
 	
-	
-	public GradeCoursePage6(WebDriver driver)
-	{
+	@FindBy(xpath = "//div[contains(text(),'Yes')]")
+	WebElement BlindGradeNew;
+
+	public GradeCoursePage6(WebDriver driver) {
 		this.driver = driver;
 	}
-		
+
 	public void NavigateToDashboardAndActivateCourse(String courseName, String crn) throws InterruptedException {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		WebDriverWait wait = new WebDriverWait(driver, 60);
@@ -156,7 +164,7 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		// JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click()", CourseLink);
 	}
-	
+
 	public void courseAttributesVerification() {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		GradeCoursePage4 GC = PageFactory.initElements(driver, GradeCoursePage4.class);
@@ -178,19 +186,19 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		softAssert.assertEquals(GC4.Paper.isDisplayed(), true);
 		softAssert.assertEquals(GC4.Publish.isDisplayed(), true);
 		softAssert.assertEquals(IdName1.isDisplayed(), true);
-		
+
 		scrollToElement(GC4.RecentNotes);
 		softAssert.assertEquals(GC4.RecentNotes.isDisplayed(), false);
 		softAssert.assertEquals(GC4.CourseDetails.isDisplayed(), false);
 		scrollToElement(GC4.InitialStatus);
 		softAssert.assertEquals(GC4.InitialStatus.isDisplayed(), false);
 		softAssert.assertEquals(GC4.TermSpring20.isDisplayed(), false);
-		//softAssert.assertEquals(GC.BlindGradeNew.isDisplayed(), true);
+		// softAssert.assertEquals(GC.BlindGradeNew.isDisplayed(), true);
 		softAssert.assertEquals(StudentCount.isDisplayed(), true);
 
 		System.out.println("All course attributes are verified");
 	}
-	
+
 	public void emulationAttributesVerification() {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		GradeCoursePage5 GC = PageFactory.initElements(driver, GradeCoursePage5.class);
@@ -202,7 +210,7 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		softAssert.assertEquals(GC4.ClassLevel.isDisplayed(), true);
 		softAssert.assertEquals(GC4.BlindGrade.isDisplayed(), true);
 		softAssert.assertEquals(GC4.CurrentStatus.isDisplayed(), true);
-		
+
 		WebDriverWait wait1 = new WebDriverWait(driver, 60);
 		wait1.until(ExpectedConditions.visibilityOf(emulCourseTitle));
 		softAssert.assertEquals(emulCourseTitle.isDisplayed(), true);
@@ -213,8 +221,8 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		softAssert.assertEquals(GC4.AssignGradeButton.isEnabled(), true);
 
 		System.out.println("All the emulation attributes are verified");
-	}	
-	
+	}
+
 	public void assignEditAttributesVerification() {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		WebDriverWait wait1 = new WebDriverWait(driver, 80);
@@ -255,7 +263,7 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		softAssert.assertEquals(StudentCount.isDisplayed(), true);
 		System.out.println("All the recent notes and course details attributes are verified");
 	}
-	
+
 	public void proceedAttributeVerification() {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		softAssert.assertEquals(GC4.GradingRule.isEnabled(), true);
@@ -274,7 +282,7 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		softAssert.assertEquals(GC4.BlueBox.isDisplayed(), true);
 		System.out.println(GC4.BlueBox.getCssValue("color"));
 	}
-	
+
 	public void AssignAllScore() throws InterruptedException {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		WebDriverWait wait1 = new WebDriverWait(driver, 60);
@@ -349,8 +357,8 @@ public class GradeCoursePage6 extends TestBaseGrade{
 
 		GC4.ProccedToFinal.click();
 
-	}	
-	
+	}
+
 	public void searchCourse() {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 
@@ -398,8 +406,7 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		System.out.println("All attributes are verified");
 	}
 
-	public void recentNoteAttributes()
-	{
+	public void recentNoteAttributes() {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
 		GradeCoursePage5 GC6 = PageFactory.initElements(driver, GradeCoursePage5.class);
@@ -410,12 +417,12 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		softAssert.assertEquals(GC4.CourseDetails.isDisplayed(), true);
 		softAssert.assertEquals(GC5.ApprovalStatus.isDisplayed(), true);
 		softAssert.assertEquals(GC6.spring2020.isDisplayed(), true);
-		// softAssert.assertEquals(Blind.isDisplayed(), true); //it should be no so, have commented this for now
+		// softAssert.assertEquals(Blind.isDisplayed(), true); //it should be no so,
+		// have commented this for now
 		softAssert.assertEquals(StudentCount.isDisplayed(), true);
 	}
-	
-	public void courseDetailAttributes()
-	{
+
+	public void courseDetailAttributes() {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
 		GradeCoursePage5 GC6 = PageFactory.initElements(driver, GradeCoursePage5.class);
@@ -429,20 +436,32 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		softAssert.assertEquals(GC6.greenMessage.isDisplayed(), true);
 		System.out.println(GC6.greenMessage.getText());
 		System.out.println(GC6.greenMessage.getCssValue("color"));
-		
+
 		softAssert.assertEquals(GC4.CourseDetails.isDisplayed(), true);
-		
+
 		softAssert.assertEquals(GC5.finalApprovalStatus2.isDisplayed(), true);
-		  
-		  highLightElement(driver, GC5.semSpring);
-		  softAssert.assertEquals(GC5.semSpring.isDisplayed(), true);
-		  softAssert.assertEquals(GC5.DistSchedule.isDisplayed(), true); // this is an extra attribute visible on portal
-		  softAssert.assertEquals(GC5.BlindGradeNew.isDisplayed(), true); // it should be NO but here it is Yes, need to check
-		  softAssert.assertEquals(GC5.studRegister.isDisplayed(), true);
-		  softAssert.assertEquals(StudentCount1.isDisplayed(), true);
-		  softAssert.assertEquals(classMean.isDisplayed(), true);		 
+
+		highLightElement(driver, GC5.semSpring);
+		softAssert.assertEquals(GC5.semSpring.isDisplayed(), true);
+		softAssert.assertEquals(GC5.DistSchedule.isDisplayed(), true); // this is an extra attribute visible on portal
+		softAssert.assertEquals(GC5.BlindGradeNew.isDisplayed(), true); // it should be NO but here it is Yes, need to
+																		// check
+		softAssert.assertEquals(GC5.studRegister.isDisplayed(), true);
+		// softAssert.assertEquals(StudentCount1.isDisplayed(), true);
+		softAssert.assertEquals(classMean.isDisplayed(), true);
 	}
-	
+
+	public void statusOnCourseListingPage() throws InterruptedException {
+
+		WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		wait1.until(ExpectedConditions.visibilityOf(courseListingPageStatus));
+
+		highLightElement(driver, courseListingPageStatus);
+		// Thread.sleep(3000);
+		softAssert.assertEquals(courseListingPageStatus.isDisplayed(), true);
+		System.out.println(courseListingPageStatus.getText());
+	}
+
 	public void gradingCourseDetailAttributes() {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
@@ -468,12 +487,12 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		softAssert.assertEquals(GC4.RawScore.isDisplayed(), true);
 		softAssert.assertEquals(GC4.Letter1.isDisplayed(), true);
 		softAssert.assertEquals(GC4.Notes.isEnabled(), true);
-		
+
 		softAssert.assertEquals(IdName1.isDisplayed(), true);
 		softAssert.assertEquals(GC.RawScoreInputBox1.isEnabled(), true);
 		softAssert.assertEquals(GC.letter1.isDisplayed(), true);
 		softAssert.assertEquals(GC.notes1.isDisplayed(), true);
-		
+
 		// softAssert.assertEquals(Paper1.isDisplayed(), false);
 		// softAssert.assertEquals(Publish1.isDisplayed(), false);
 
@@ -483,12 +502,12 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		highLightElement(driver, gradingStatus1);
 		softAssert.assertEquals(gradingStatus1.isDisplayed(), true);
 		softAssert.assertEquals(GC4.TermSpring20.isDisplayed(), true);
-		softAssert.assertEquals(GC5.BlindGradeNew.isDisplayed(), true); 
-		  softAssert.assertEquals(StudentCount.isDisplayed(), true);
+		softAssert.assertEquals(BlindGradeNew.isDisplayed(), true);
+		softAssert.assertEquals(StudentCount.isDisplayed(), true);
 
 		System.out.println("All course final approval attributes are verified");
 	}
-	
+
 	public void checkAttributes() {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
@@ -504,23 +523,23 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		softAssert.assertEquals(GC.greenMessage.isDisplayed(), true);
 		System.out.println(GC.greenMessage.getText());
 		System.out.println(GC.greenMessage.getCssValue("color"));
-		
-		
+
 		softAssert.assertEquals(GC4.CourseDetails.isDisplayed(), true);
-		softAssert.assertEquals(gradingStatus1.isDisplayed(), true);
-		  
+		softAssert.assertEquals(gradingStatus3.isDisplayed(), true);
+
 		scrollToElement(GC5.semSpring);
-		  highLightElement(driver, GC5.semSpring);
-		  softAssert.assertEquals(GC5.semSpring.isDisplayed(), true);
-		  softAssert.assertEquals(GC5.DistSchedule.isDisplayed(), true); // this is an extra attribute visible on portal
-		  softAssert.assertEquals(GC5.BlindGradeNew.isDisplayed(), true); // it should be NO but here it is Yes, need to check
-		  softAssert.assertEquals(GC5.studRegister.isDisplayed(), true);
-		  softAssert.assertEquals(StudentCount1.isDisplayed(), true);
-		  softAssert.assertEquals(classMean.isDisplayed(), true);		 
-						
+		highLightElement(driver, GC5.semSpring);
+		softAssert.assertEquals(GC5.semSpring.isDisplayed(), true);
+		softAssert.assertEquals(GC5.DistSchedule.isDisplayed(), true); // this is an extra attribute visible on portal
+		softAssert.assertEquals(GC5.BlindGradeNew.isDisplayed(), true); // it should be NO but here it is Yes, need to
+																		// check
+		softAssert.assertEquals(GC5.studRegister.isDisplayed(), true);
+		//softAssert.assertEquals(StudentCount1.isDisplayed(), true);
+		softAssert.assertEquals(classMean.isDisplayed(), true);
+
 		System.out.println("All attributes are verified");
 	}
-	
+
 	public void emulationAttributesVerificationAgain() {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		GradeCoursePage5 GC = PageFactory.initElements(driver, GradeCoursePage5.class);
@@ -532,7 +551,7 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		softAssert.assertEquals(GC4.ClassLevel.isDisplayed(), true);
 		softAssert.assertEquals(GC4.BlindGrade.isDisplayed(), true);
 		softAssert.assertEquals(GC4.CurrentStatus.isDisplayed(), true);
-		
+
 		WebDriverWait wait1 = new WebDriverWait(driver, 60);
 		wait1.until(ExpectedConditions.visibilityOf(emulCourseTitle));
 		softAssert.assertEquals(emulCourseTitle.isDisplayed(), true);
@@ -542,8 +561,8 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		softAssert.assertEquals(GC4.AssignGradeButton.isEnabled(), true);
 
 		System.out.println("All the emulation attributes are verified");
-	}	
-	
+	}
+
 	public void viewGradesAttributes() {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
@@ -587,7 +606,7 @@ public class GradeCoursePage6 extends TestBaseGrade{
 
 		System.out.println("All view grade attributes are verified");
 	}
-	
+
 	public void checkConformityAttributes() {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
@@ -609,28 +628,34 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		highLightElement(driver, GC5.semSpring);
 		softAssert.assertEquals(GC5.semSpring.isDisplayed(), true);
 		softAssert.assertEquals(GC5.DistSchedule.isDisplayed(), true); // this is an extra attribute visible on portal
-		softAssert.assertEquals(GC5.BlindGradeNew.isDisplayed(), true); // it should be NO but here it is Yes, need to check
-																		
+		softAssert.assertEquals(GC5.BlindGradeNew.isDisplayed(), true); // it should be NO but here it is Yes, need to
+																		// check
+
 		softAssert.assertEquals(GC5.studRegister.isDisplayed(), true);
-		  softAssert.assertEquals(StudentCount1.isDisplayed(), true);
-		  softAssert.assertEquals(classMean.isDisplayed(), true);		
+		//softAssert.assertEquals(StudentCount1.isDisplayed(), true);
+		softAssert.assertEquals(classMean.isDisplayed(), true);
 
 		System.out.println("All attributes are verified");
 	}
-	
-	public void clickOnStudentsTab()
-	{
+
+	public void clickOnStudentsTab() throws InterruptedException {
 		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
 		WebDriverWait wait1 = new WebDriverWait(driver, 60);
 		wait1.until(ExpectedConditions.visibilityOf(studTab));
 		studTab.click();
+		Thread.sleep(5000);
 		wait1.until(ExpectedConditions.visibilityOf(searchBoxStud));
 		searchBoxStud.sendKeys("Bloomer");
+		//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		//driver.manage().timeouts().setScriptTimeout(1, TimeUnit.SECONDS);
+		Thread.sleep(5000);
+		wait1.until(ExpectedConditions.visibilityOf(emulStudName));
 		emulStud.click();
 		scrollToElement(midAssesmentScore);
 		softAssert.assertEquals(midAssesmentScore.isDisplayed(), true);
-		System.out.println("Raw score displayed for Adv Legal Research, CRN 38884 matches with the raw score submitted by the Instructor");
-		
+		System.out.println(
+				"Raw score displayed for Adv Legal Research, CRN 38884 matches with the raw score submitted by the Instructor");
+
 		scrollToElement(GC5.cancelEmulation);
 		wait1.until(ExpectedConditions.visibilityOf(GC5.cancelEmulation));
 		highLightElement(driver, GC5.cancelEmulation);
@@ -638,12 +663,12 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click()", GC5.cancelEmulation);
 	}
-	
+
 	public void checkFinalStatus() {
 
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
-		
+
 		WebDriverWait wait1 = new WebDriverWait(driver, 90);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.COURSE));
 		softAssert.assertEquals(GC4.COURSE.isDisplayed(), true);
@@ -654,9 +679,5 @@ public class GradeCoursePage6 extends TestBaseGrade{
 		softAssert.assertEquals(GC5.notActivatedStatus.isDisplayed(), true);
 		System.out.println(GC5.notActivatedStatus.getText());
 	}
-	
+
 }
-
-
-		
-		
