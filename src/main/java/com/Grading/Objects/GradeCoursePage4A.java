@@ -427,7 +427,7 @@ public class GradeCoursePage4A extends TestBaseGrade {
 	@FindBy(xpath = "//h1[contains(text(),'Final Grading Phase')]")
 	WebElement finalPhase;
 
-	@FindBy(xpath = "//button[contains(text(),'Show Copy/Paste Import Panel ')]")
+	@FindBy(xpath = "//button[contains(text(),'Show Copy/Paste Import Panel')]")
 	WebElement copyPasteImport;
 
 	@FindBy(xpath = "(//td[@class='hidden-xs hideinmobile tabletext'])[1]")

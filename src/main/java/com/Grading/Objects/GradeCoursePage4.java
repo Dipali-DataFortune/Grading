@@ -1101,7 +1101,7 @@ public class GradeCoursePage4 extends TestBaseGrade {
 		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
 		GC4.searchBox.sendKeys("Intro to Fed Income Tax");
 
-		wait1.until(ExpectedConditions.visibilityOf(notActivatedStatus));
+		//wait1.until(ExpectedConditions.visibilityOf(notActivatedStatus));
 		softAssert1.assertEquals(notActivatedStatus.isDisplayed(), true);
 		System.out.println(notActivatedStatus.getText());
 	}

@@ -367,7 +367,7 @@ public class GradeCoursePage6 extends TestBaseGrade {
 		softAssert.assertEquals(GC4.COURSE.isDisplayed(), true);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
 		GC4.searchBox.sendKeys("Adv Legal Research");
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	}
 
 	public void clickOnCourse() {
@@ -651,6 +651,7 @@ public class GradeCoursePage6 extends TestBaseGrade {
 		Thread.sleep(5000);
 		wait1.until(ExpectedConditions.visibilityOf(emulStudName));
 		emulStud.click();
+		wait1.until(ExpectedConditions.visibilityOf(midAssesmentScore));
 		scrollToElement(midAssesmentScore);
 		softAssert.assertEquals(midAssesmentScore.isDisplayed(), true);
 		System.out.println(
@@ -675,7 +676,7 @@ public class GradeCoursePage6 extends TestBaseGrade {
 		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
 		GC4.searchBox.sendKeys("Adv Legal Research");
 
-		wait1.until(ExpectedConditions.visibilityOf(GC5.notActivatedStatus));
+		//wait1.until(ExpectedConditions.visibilityOf(GC5.notActivatedStatus));
 		softAssert.assertEquals(GC5.notActivatedStatus.isDisplayed(), true);
 		System.out.println(GC5.notActivatedStatus.getText());
 	}

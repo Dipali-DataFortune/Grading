@@ -22,6 +22,8 @@
 
 <suite-file path="GradingXml\\CourseTest5.xml"></suite-file>
 
+<suite-file path="GradingXml\\CourseTest6.xml"></suite-file>
+
 <!-- <suite-file path="GradingXml\\DashBoardTest.xml"></suite-file>
 
 <suite-file path="GradingXml\\Faculty.xml"></suite-file>
