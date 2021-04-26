@@ -1275,12 +1275,12 @@ public class GradeCoursePage5 extends TestBaseGrade {
 		System.out.println("All attributes are verified");
 	}
 	
-	public void checkFinalStatus() {
+	public void checkFinalStatus() throws InterruptedException {
 
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
 		
-		WebDriverWait wait1 = new WebDriverWait(driver, 90);
+		WebDriverWait wait1 = new WebDriverWait(driver, 60);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.COURSE));
 		softAssert.assertEquals(GC4.COURSE.isDisplayed(), true);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
@@ -1288,6 +1288,7 @@ public class GradeCoursePage5 extends TestBaseGrade {
 
 		wait1.until(ExpectedConditions.visibilityOf(GC5.notActivatedStatus));
 		softAssert.assertEquals(GC5.notActivatedStatus.isDisplayed(), true);
+		//Thread.sleep(3000);
 		System.out.println(GC5.notActivatedStatus.getText());
 	}
 

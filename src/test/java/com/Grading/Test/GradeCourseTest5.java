@@ -435,7 +435,7 @@ public class GradeCourseTest5 extends TestBaseGrade{
 	
 	@Test(priority = 65, enabled = true)
 	public void verifycheckFinalStatus() throws InterruptedException {
-		GradeCoursePage4 Gr1 = PageFactory.initElements(driver,GradeCoursePage4.class);
+		GradeCoursePage5 Gr1 = PageFactory.initElements(driver,GradeCoursePage5.class);
 		Gr1.checkFinalStatus();		
 	}
 }

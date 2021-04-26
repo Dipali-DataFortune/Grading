@@ -470,7 +470,7 @@ public class GradeCoursePage4 extends TestBaseGrade {
 		softAssert1.assertEquals(GC4.COURSE.isDisplayed(), true);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
 		GC4.searchBox.sendKeys("Intro to Fed Income Tax");
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	}
 
 	public void clickOnCourse() {
@@ -481,7 +481,7 @@ public class GradeCoursePage4 extends TestBaseGrade {
 		 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click()", GC4.CourseLink);
-
+		//staleElementClick(5, GC4.CourseLink, 60);
 	}
 
 	public void finalApprovalAttributes() {
@@ -619,14 +619,15 @@ public class GradeCoursePage4 extends TestBaseGrade {
 		softAssert1.assertEquals(GC4.COURSE.isDisplayed(), true);
 		wait.until(ExpectedConditions.visibilityOf(GC4.searchBox));
 		highLightElement(driver, GC4.searchBox);
+		Thread.sleep(3000);
 		GC4.searchBox.sendKeys("Intro to Fed Income Tax");
 
 		//Thread.sleep(5000);
 
-		//WebDriverWait wait1 = new WebDriverWait(driver, 60);
-		wait.until(ExpectedConditions.visibilityOf(finalGradeNotApprovedStatus));
+		WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		wait1.until(ExpectedConditions.visibilityOf(finalGradeNotApprovedStatus));
 		
-		highLightElement(driver, finalGradeNotApprovedStatus);
+		//highLightElement(driver, finalGradeNotApprovedStatus);
 		softAssert1.assertEquals(finalGradeNotApprovedStatus.isDisplayed(), true);
 		System.out.println(finalGradeNotApprovedStatus.getText());
 
@@ -1091,7 +1092,7 @@ public class GradeCoursePage4 extends TestBaseGrade {
 		// NoButton.click();
 	}
 
-	public void checkFinalStatus() {
+	public void checkFinalStatus() throws InterruptedException {
 
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		
@@ -1101,7 +1102,9 @@ public class GradeCoursePage4 extends TestBaseGrade {
 		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
 		GC4.searchBox.sendKeys("Intro to Fed Income Tax");
 
-		//wait1.until(ExpectedConditions.visibilityOf(notActivatedStatus));
+		//WebDriverWait wait = new WebDriverWait(driver, 30);
+		//wait.until(ExpectedConditions.visibilityOf(notActivatedStatus));
+		Thread.sleep(3000);
 		softAssert1.assertEquals(notActivatedStatus.isDisplayed(), true);
 		System.out.println(notActivatedStatus.getText());
 	}
