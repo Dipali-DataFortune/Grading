@@ -799,12 +799,12 @@ public class GradeCoursePage4 extends TestBaseGrade {
 	}
 
 	public void statusOnCourseListingPage() throws InterruptedException {
-		
-		//WebDriverWait wait1 = new WebDriverWait(driver, 60);
-		//wait1.until(ExpectedConditions.visibilityOf(StatusBannerUpload));
+				
+		WebDriverWait wait1 = new WebDriverWait(driver, 30);
+		wait1.until(ExpectedConditions.visibilityOf(StatusBannerUpload));
 		 
 		highLightElement(driver, StatusBannerUpload);
-		//Thread.sleep(3000);
+		
 		softAssert1.assertEquals(StatusBannerUpload.isDisplayed(), true);
 		System.out.println(StatusBannerUpload.getText());
 	}

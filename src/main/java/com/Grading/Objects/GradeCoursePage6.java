@@ -665,7 +665,7 @@ public class GradeCoursePage6 extends TestBaseGrade {
 		js.executeScript("arguments[0].click()", GC5.cancelEmulation);
 	}
 
-	public void checkFinalStatus() {
+	public void checkFinalStatus() throws InterruptedException {
 
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
@@ -677,6 +677,7 @@ public class GradeCoursePage6 extends TestBaseGrade {
 		GC4.searchBox.sendKeys("Adv Legal Research");
 
 		//wait1.until(ExpectedConditions.visibilityOf(GC5.notActivatedStatus));
+		Thread.sleep(3000);
 		softAssert.assertEquals(GC5.notActivatedStatus.isDisplayed(), true);
 		System.out.println(GC5.notActivatedStatus.getText());
 	}

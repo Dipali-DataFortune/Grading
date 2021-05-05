@@ -1004,9 +1004,10 @@ public class GradeCoursePage5 extends TestBaseGrade {
 		wait1.until(ExpectedConditions.visibilityOf(GC4.COURSE));
 //		softAssert.assertEquals(GC4.COURSE.isDisplayed(), true);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
-		//GC4.searchBox.sendKeys("Immigr Policy across Branches");
+		
 		highLightElement(driver, GC4.searchBox);
-		GC4.searchBox.sendKeys("38897");
+		//GC4.searchBox.sendKeys("38897");
+		GC4.searchBox.sendKeys("Immigr Policy across Branches");
 		//Thread.sleep(3000);
 		//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	}
@@ -1286,9 +1287,10 @@ public class GradeCoursePage5 extends TestBaseGrade {
 		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
 		GC4.searchBox.sendKeys("Immigr Policy across Branches");
 
+		Thread.sleep(3000);
 		wait1.until(ExpectedConditions.visibilityOf(GC5.notActivatedStatus));
 		softAssert.assertEquals(GC5.notActivatedStatus.isDisplayed(), true);
-		//Thread.sleep(3000);
+		
 		System.out.println(GC5.notActivatedStatus.getText());
 	}
 
