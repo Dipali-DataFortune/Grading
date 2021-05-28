@@ -1096,15 +1096,17 @@ public class GradeCoursePage4 extends TestBaseGrade {
 
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		
+		Thread.sleep(5000);
+		
 		WebDriverWait wait1 = new WebDriverWait(driver, 60);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.COURSE));
 		softAssert1.assertEquals(GC4.COURSE.isDisplayed(), true);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
 		GC4.searchBox.sendKeys("Intro to Fed Income Tax");
 
-		//WebDriverWait wait = new WebDriverWait(driver, 30);
-		//wait.until(ExpectedConditions.visibilityOf(notActivatedStatus));
-		Thread.sleep(3000);
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		wait.until(ExpectedConditions.visibilityOf(notActivatedStatus));
+		
 		softAssert1.assertEquals(notActivatedStatus.isDisplayed(), true);
 		System.out.println(notActivatedStatus.getText());
 	}

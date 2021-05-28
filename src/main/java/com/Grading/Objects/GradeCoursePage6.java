@@ -670,14 +670,15 @@ public class GradeCoursePage6 extends TestBaseGrade {
 		GradeCoursePage4A GC4 = PageFactory.initElements(driver, GradeCoursePage4A.class);
 		GradeCoursePage4 GC5 = PageFactory.initElements(driver, GradeCoursePage4.class);
 
+		Thread.sleep(5000);
 		WebDriverWait wait1 = new WebDriverWait(driver, 90);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.COURSE));
 		softAssert.assertEquals(GC4.COURSE.isDisplayed(), true);
 		wait1.until(ExpectedConditions.visibilityOf(GC4.searchBox));
 		GC4.searchBox.sendKeys("Adv Legal Research");
 
-		//wait1.until(ExpectedConditions.visibilityOf(GC5.notActivatedStatus));
-		Thread.sleep(3000);
+		wait1.until(ExpectedConditions.visibilityOf(GC5.notActivatedStatus));
+		
 		softAssert.assertEquals(GC5.notActivatedStatus.isDisplayed(), true);
 		System.out.println(GC5.notActivatedStatus.getText());
 	}
