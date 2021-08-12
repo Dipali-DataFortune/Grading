@@ -46,6 +46,7 @@ public class GradeCoursePage4A extends TestBaseGrade {
 
 	@FindBy(xpath = "//input[@id='search']")
 	// @FindBy(xpath="//input[@class='form-control']")
+	//input[@placeholder='Search by course title, CRN, course # or section...']
 	WebElement searchBox;
 
 	// @FindBy(xpath="//input[@id='check_tag_0']") WebElement CourseCheckBox;
